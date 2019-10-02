@@ -40,3 +40,23 @@ $ git push heroku master
 Navigate to https://dry-cove-84361.herokuapp.com to see application
 
 - Heroku Subsequent Deployments
+$ git add .
+$ git commit -M "message"
+$ git push heroku master
+
+also don't forget to do...
+
+$ git push origin master
+
+
+- Passport Library Components
+    > passport - General helpers for handling auth in express apps
+    > passport strategy - Helpers for authenticating with one very specific method (email/password, google, facebook etc.)
+
+
+- Connect to Google API
+http://console.developers.google.com
+
+- Client ID & Secret
+ID - Public token we can share this with the public
+Secret - Private token we don't want anyone to see - Hide so not public on github
