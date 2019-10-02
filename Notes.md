@@ -5,3 +5,26 @@ Javascript runtime used to execute code outside of the browser
 
 - Express
 Library that runs in the Node runtime. Has helpers to make dealing with HTTP faster
+
+
+- What Node and Express do
+When you run a server on your machine, your machine will be listening for traffic at a particular port.
+NodeJS is what is specifically listening at that port. It takes that traffic and then hands it to express.
+Express looks at request and decides and what chunk of code will handle the response to the request.
+These chunks are route handlers which will process the request and then generate a response that we produce. 
+
+- Heroku Checklist Before Deployment
+Dynamic Port Binding - Heroku tells us which port our app will use, so we need to make sure we listen to the port they tell us to.
+Specify Node Environment - We want to use a specific version of node, so we need to tell Heroku which version we want. - package.json
+Specify start script - Instruct heroku what command to run to start out server running - package.json
+Create .gitignore file - we don't want to include dependencies, heroku will do that for us.
+
+- Heroku First Deployment
+Create Heroku account
+Commit codebase to Git, use command "git --version"
+Install Heroku CLI and Create App
+Deploy App with Git
+Heroku then Deploys the App
+
+
+- Heroku Subsequent Deployments
