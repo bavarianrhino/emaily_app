@@ -18,13 +18,23 @@ Dynamic Port Binding - Heroku tells us which port our app will use, so we need t
 Specify Node Environment - We want to use a specific version of node, so we need to tell Heroku which version we want. - package.json
 Specify start script - Instruct heroku what command to run to start out server running - package.json
 Create .gitignore file - we don't want to include dependencies, heroku will do that for us.
+    -Command to remove tracked files on github but not remove from local 
+    - git rm -r --cached node_modules
 
 - Heroku First Deployment
 Create Heroku account
-Commit codebase to Git, use command "git --version"
-Install Heroku CLI and Create App
+Commit codebase to Git
+$ git --version
+
+Install Heroku CLI and Create App -
+$ heroku login
+$ heroku create
+
 Deploy App with Git
+$ git remote add heroku https://git.heroku.com/infinite-springs-15013.git
+
 Heroku then Deploys the App
+$ git push heroku master
 
 
 - Heroku Subsequent Deployments
