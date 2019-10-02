@@ -32,9 +32,11 @@ $ heroku create
 
 Deploy App with Git
 $ git remote add heroku https://git.heroku.com/infinite-springs-15013.git
+$ heroku buildpacks:set heroku/nodejs
 
 Heroku then Deploys the App
 $ git push heroku master
 
+Navigate to https://dry-cove-84361.herokuapp.com to see application
 
 - Heroku Subsequent Deployments
