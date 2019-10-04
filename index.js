@@ -30,6 +30,9 @@ app.get(
     })
 );
 
+app.get('/auth/google/callback', passport.authenticate('google'));
+
+
 const PORT = process.env.PORT || 3000; // Heroku uses environment variables to tell us which port to use. Not needed if run on local machine, but handles if run on local machine
 app.listen(PORT)
 
