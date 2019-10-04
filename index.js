@@ -16,15 +16,20 @@ passport.use(
         {
             clientID: keys.googleClientID,
             clientSecret: keys.googleClientSecret,
-            callbackURL: '/auth/google/callback'
-            //third option/argument is the path url that the user is sent to after granting permission from google server
+            callbackURL: '/auth/google/callback' //third option/argument is the path url that the user is sent to after granting permission from google server
         }, (accessToken) => {
             console.log(accessToken);
         }
     )
 );
 
+app.get(
+    '/auth/google',
+    passport.authenticate('google', {
+        scope: ['profile', 'email']
+    })
+);
 
-const PORT = process.env.PORT || 3000/ // Heroku uses environment variables to tell us which port to use. Not needed if run on local machine, but handles if run on local machine
+const PORT = process.env.PORT || 3000; // Heroku uses environment variables to tell us which port to use. Not needed if run on local machine, but handles if run on local machine
 app.listen(PORT)
 
