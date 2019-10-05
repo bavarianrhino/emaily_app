@@ -60,3 +60,16 @@ http://console.developers.google.com
 - Client ID & Secret
 ID - Public token we can share this with the public
 Secret - Private token we don't want anyone to see - Hide so not public on github
+
+- Cookie Based Authentication
+After logging in, server will set a cookie/token using a response in header
+Will store token in cookies that is stored in memory
+This cookie auth has short comings but good for this app.
+
+- MongoDB
+Uses collections to store data, and every collection contains records.
+Is schema-less
+
+- Mongoose
+Model class to represent entire collection in MongoDB
+Model instance are js objects that represent one of the records in a collection of MongoDB

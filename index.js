@@ -1,14 +1,20 @@
 
 // import express from 'express'; //ES6 This makes use of 2016 modules and as far as this project goes we are using common imports
 const express = require('express');
+const mongoose = require('mongoose')
+const keys = require('./config/keys')
 // const passportConfig = require('./services/passport'); // This is shortend to line below
+require('./models/User');
 require('./services/passport');
+
+mongoose.connect(keys.mongoURI)
 
 const app = express();
 
 // const authRoutes = require('./routes/authRoutes')
 // authRoutes(app);
 require('./routes/authRoutes')(app); // Replaces and short for above lines
+
 
 
 // passport.use(
