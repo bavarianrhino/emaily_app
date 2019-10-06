@@ -22,28 +22,27 @@ Heroku Checklist Before Deployment
 - Specify Node Environment - We want to use a specific version of node, so we need to tell Heroku which version we want. - package.json
 - Specify start script - Instruct heroku what command to run to start out server running - package.json
 - Create .gitignore file - we don't want to include dependencies, heroku will do that for us.
-
-   Command to remove tracked files on github but not remove from local 
-   $git rm -r --cached node_modules
+   Command to remove tracked files on github but not remove from local  
+   $git rm -r --cached node_modules  
 
 Heroku First Deployment
 ======
 - Create Heroku account
 - Commit codebase to Git
-   $ git --version
+   $ git --version  
 - Install Heroku CLI and Create App
-   $ heroku login
-   $ heroku create
+   $ heroku login  
+   $ heroku create  
 - Deploy App with Git
-   $ git remote add heroku https://git.heroku.com/infinite-springs-15013.git
-   $ heroku buildpacks:set heroku/nodejs
+   $ git remote add heroku https://git.heroku.com/infinite-springs-15013.git  
+   $ heroku buildpacks:set heroku/nodejs  
 - Heroku then Deploys the App
-   $ git push heroku master
+   $ git push heroku master  
 - Navigate to https://dry-cove-84361.herokuapp.com to see application
 - Heroku Subsequent Deployments
-   $ git add .
-   $ git commit -M "message"
-   $ git push heroku master
+   $ git add .  
+   $ git commit -M "message"  
+   $ git push heroku master  
 
    also don't forget to do...
 
@@ -59,8 +58,8 @@ Google Login Setup
 ======
 - Connect to Google API http://console.developers.google.com
 - Client ID & Secret
-   ID - Public token we can share this with the public
-   Secret - Private token we don't want anyone to see - Hide so not public on github
+   ID - Public token we can share this with the public  
+   Secret - Private token we don't want anyone to see - Hide so not public on github  
 
 Cookie Based Authentication
 ======
@@ -73,5 +72,5 @@ MongoDB
 - Uses collections to store data, and every collection contains records.
 - Is schema-less
 - Mongoose
-   Model class to represent entire collection in MongoDB
-   Model instance are js objects that represent one of the records in a collection of MongoDB
+   Model class to represent entire collection in MongoDB  
+   Model instance are js objects that represent one of the records in a collection of MongoDB  
