@@ -79,7 +79,7 @@ Cookie Session Explained
 ======
 - The cookie IS the session
 - when navigating to new route, a `console.log(req.session)`
-```json
+```
 {
     - passport: {
         user: '595fc8f1fe63a8937dde1eed'
