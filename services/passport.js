@@ -24,7 +24,8 @@ passport.use(
 		{
 			clientID: keys.googleClientID,
 			clientSecret: keys.googleClientSecret,
-			callbackURL: '/auth/google/callback' //third option/argument is the path url that the user is sent to after granting permission from google server
+            callbackURL: '/auth/google/callback', //third option/argument is the path url that the user is sent to after granting permission from google server
+            proxy: true
 		},
 		(accessToken, refreshToken, profile, done) => {
             // console.log('Access Token', accessToken); // console.log('Refresh Token', refreshToken); // console.log('Profile', profile);
