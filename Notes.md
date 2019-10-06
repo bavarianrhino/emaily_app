@@ -74,3 +74,26 @@ MongoDB
 - Mongoose
    Model class to represent entire collection in MongoDB  
    Model instance are js objects that represent one of the records in a collection of MongoDB  
+
+Cookie Session Explained
+======
+- The cookie IS the session
+- when navigating to new route, a `console.log(req.session)`
+```json
+{
+    - passport: {
+        user: '595fc8f1fe63a8937dde1eed'
+    }
+}
+```
+- CookieSession doesn't actually pass data to passport, just populates the req.session with data
+- Passport references the req.session object 
+- Another library called express-session that accomplish same thing in different ways (The way the data is stored)
+- Can only use 14kb of data
+
+
+Express-Session Explained
+======
+- CookieSession uses the cookie as the session where express-session references to a session inside the cookie.
+- Takes session id and then looks up relevant info from a 'session store' which can store arbitrary amounts of info
+- Can put as much data as we want in session store but need to set up compatible store (Outside service)
