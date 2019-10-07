@@ -97,3 +97,30 @@ Express-Session Explained
 - CookieSession uses the cookie as the session where express-session references to a session inside the cookie.
 - Takes session id and then looks up relevant info from a 'session store' which can store arbitrary amounts of info
 - Can put as much data as we want in session store but need to set up compatible store (Outside service)
+
+JS ASYNC
+======
+```javascript
+
+// Outdated 
+function fetchAlbums() {
+    fetch('https://rallycoding.herokuapp.com/api/music_albums').then(res => res.json()).then(json => console.log(json));
+}
+
+// Modern
+async function fetchAlbums() {
+    const res = await fetch('https://rallycoding.herokuapp.com/api/music_albums')
+    const json = await res.json()
+    
+    console.log(json)
+}
+
+// Refined Best Practice
+const fetchAlbums = async () => {
+    const res = await fetch('https://rallycoding.herokuapp.com/api/music_albums')
+    const json = await res.json()
+    
+    console.log(json)
+}
+
+```
