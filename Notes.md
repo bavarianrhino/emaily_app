@@ -124,3 +124,9 @@ const fetchAlbums = async () => {
 }
 
 ```
+
+Webpack
+======
+- was loaded by create-react-app
+- is module loader...takes multiple js files and handles them down to one file
+- comes built in that sees css files and knows how to parse them
