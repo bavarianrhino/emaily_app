@@ -12,9 +12,14 @@ class Header extends Component {
 
     render() {
         return (
-            <div>
-                THIS IS THE HEADER DIV
-            </div>
+            <nav>
+                <div className="nav-wrapper">
+                    <a href="/" className="brand-logo">Emaily</a>
+                    <ul className="right hide-on-med-and-down">
+                        <li><a href="sass.html">Login with Google</a></li>
+                    </ul>
+                </div>
+            </nav>
         )
     }
 }
