@@ -10,6 +10,7 @@ import { RootReducer } from './reducers/RootReducer';
 import * as serviceWorker from './serviceWorker';
 
 // import './index.css';
+import 'materialize-css/dist/css/materialize.min.css' //webpack needs to import correctly with no beginning path
 // import 'semantic-ui-css/semantic.min.css';
 
 
