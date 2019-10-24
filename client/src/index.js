@@ -17,6 +17,7 @@ import 'materialize-css/dist/css/materialize.min.css' //webpack needs to import 
 // const store = createStore(RootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 // const store = createStore(RootReducer, composeWithDevTools(applyMiddleware(thunk)));
 // const store = createStore(RootReducer, {}, applyMiddleware())
+// const store = createStore(RootReducer, {}, applyMiddleware(thunk))
 const store = createStore(RootReducer, {}, composeWithDevTools(applyMiddleware(thunk)));
 
 ReactDOM.render(
