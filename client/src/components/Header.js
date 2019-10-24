@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Payments from './Payments'
 
 // import { } from 'semantic-ui-react';
 
@@ -17,6 +18,7 @@ class Header extends Component {
                 return <li><a href="/auth/google">Login With Google</a></li>
             default:
                 console.log("LOGGED IN")
+                // About to link payments
                 return <li><a href="/api/logout">Logout</a></li>
         }
     }
