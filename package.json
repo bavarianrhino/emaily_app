@@ -23,5 +23,11 @@
     "nodemon": "^1.19.3",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^2.0.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.5.0",
+    "@typescript-eslint/parser": "^2.5.0",
+    "eslint": "^6.5.1",
+    "eslint-plugin-react": "^7.16.0"
   }
 }
