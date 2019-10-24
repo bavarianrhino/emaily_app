@@ -6,17 +6,29 @@ import { connect } from 'react-redux';
 
 class Header extends Component {
 
-    funcName = (e) => {
-        console.log(e.target.value)
+    renderContent() {
+        switch (this.props.auth) {
+            case null:
+                console.log("REQUEST DOES NOT HAVE RESPONSE")
+                return;
+            case false:
+                console.log("LOGGED OUT")
+                return <li><a href="/auth/google">Login With Google</a></li>
+            default:
+                console.log("LOGGED IN")
+                return <li><a href="/api/logout">Logout</a></li>
+        }
     }
 
     render() {
+        // console.log(this.props) //Shows first api return as null and then shows second async api with user data,
+        // which returns user data or the boolean false.
         return (
             <nav>
                 <div className="nav-wrapper">
                     <a href="/" className="brand-logo">Emaily</a>
                     <ul className="right hide-on-med-and-down">
-                        <li><a href="sass.html">Login with Google</a></li>
+                        {this.renderContent()}
                     </ul>
                 </div>
             </nav>
@@ -24,15 +36,20 @@ class Header extends Component {
     }
 }
 
+// HOW I USUALLY SET mapStateToProps
+// const mapStateToProps = (state) => {
+//     return {
+//         attr: state.attr
+//     }
+// }
 
-const mapStateToProps = (state) => {
-    return {
-        attr: state.attr
-    }
+// REFACTORED BELOW USING ES6
+// function mapStateToProps(state) {
+//     return { auth: state.auth };
+// }
+
+function mapStateToProps({ auth }) {
+    return { auth }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-    functionName: (param) => dispatch({ type: 'ACTION_NAME', param })
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(mapStateToProps)(Header);
