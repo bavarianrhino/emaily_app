@@ -21,8 +21,8 @@ class Header extends Component {
                 // About to link payments
                 // return <li><a href="/api/logout">Logout</a></li>
                 return [
-                    <li><Payments /></li>,
-                    <li><a href="/api/logout">Logout</a></li>
+                    <li key={1}><Payments /></li>,
+                    <li key={2}><a href="/api/logout">Logout</a></li>
                 ]
         }
     }
