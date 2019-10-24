@@ -19,7 +19,11 @@ class Header extends Component {
             default:
                 console.log("LOGGED IN")
                 // About to link payments
-                return <li><a href="/api/logout">Logout</a></li>
+                // return <li><a href="/api/logout">Logout</a></li>
+                return [
+                    <li><Payments /></li>,
+                    <li><a href="/api/logout">Logout</a></li>
+                ]
         }
     }
 
