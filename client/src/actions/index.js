@@ -45,5 +45,11 @@ export const fetchUser = () => async (dispatch) => {
     dispatch({ type: FETCH_USER, payload: res.data });
 };
 
+export const handleToken = (token) => async (dispatch) => {
+    const res = await axios.post('/api/stripe', token);
+    
+    dispatch({ type: FETCH_USER, payload: res.data }); // This uses FETCH_USER from above...I would break it up
+};
+
 // **Note if setupProxy.js is not in use, execute the following line.
 // After writing each one, write additional proxy in package.json
