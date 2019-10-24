@@ -130,3 +130,15 @@ Webpack
 - was loaded by create-react-app
 - is module loader...takes multiple js files and handles them down to one file
 - comes built in that sees css files and knows how to parse them
+
+React Stripe Checkout
+======
+- node package on client side that does the heavy lifting in recieving and passing back tokens
+- mainly used in Payments.js that comes with attributes name, description, amount, token and stripeKey.
+- Need to provide button within component
+
+Body Parser
+======
+- Express gotcha handled with this. When make post request, express does not parse by default the payload
+- This takes the request body and parses it in a middleware before it hits the route handlers.
+-  Access it by calling req.body property
