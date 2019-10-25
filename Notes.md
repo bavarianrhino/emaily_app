@@ -136,6 +136,7 @@ React Stripe Checkout
 - node package on client side that does the heavy lifting in recieving and passing back tokens
 - mainly used in Payments.js that comes with attributes name, description, amount, token and stripeKey.
 - Need to provide button within component
+- Every stripe method like above returns a chainable promise which can be used instead of a regular callback
 
 Body Parser
 ======
