@@ -1,8 +1,17 @@
 const keys = require('../config/keys');
 const stripe = require('stripe')(keys.stripeSecretKey);
+const requireLogin = require('../middlewares/requireLogin');
 
+// Express allows the use of multiple middlewares to be used as long as request is handled
 module.exports = app => {
-    app.post('/api/stripe', async (req, res) => {
+    app.post('/api/stripe', requireLogin, async (req, res) => {
+
+        // Below works in checking that a user is logged in before purchase
+        // Going to refactor into middleware on index.js to be used by other components
+        // if (!req.user) {
+        //     return res.status(401).send({ error: "Please login in to purchase!"})
+        // }
+
         // console.log(req.body) //Body shown below
         // Amount is specified second time here to actually charge customer,
         // amount of 500 on front end is to gain authorization from stripe.
@@ -13,7 +22,14 @@ module.exports = app => {
             description: '$5 for 5 credits',
             source: req.body.id
         })
-        console.log(charge)
+        // Comes from Passport Session and Initialize in index.js
+        // User Model below
+        req.user.credits += 5;
+        // Need to save and persist User Model, Below then becomes a async call
+        const user = await req.user.save();
+
+        res.send(user);
+        // console.log(charge)
     })
 }
 
