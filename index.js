@@ -6,6 +6,7 @@ const passport = require('passport') // Tells passport to keep of track of user 
 const keys = require('./config/keys')
 const bodyParser = require('body-parser');
 require('./models/User'); // Shorthand for const passportConfig = require('./services/passport');
+require('./models/Survey');
 require('./services/passport');
 
 mongoose.connect(keys.mongoURI)
