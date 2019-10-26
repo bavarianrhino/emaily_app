@@ -143,3 +143,10 @@ Body Parser
 - Express gotcha handled with this. When make post request, express does not parse by default the payload
 - This takes the request body and parses it in a middleware before it hits the route handlers.
 -  Access it by calling req.body property
+
+HOW TO BUILD ON HEROKU
+======
+- Before deploying to Heroku, need to npm run build in client directory.
+- Every time something is changed, you need to build before deploying every time.
+- Traditionally we done commit out build assets to git
+- Heroku does not care about the client side configuration and need to code a run script in package.json
