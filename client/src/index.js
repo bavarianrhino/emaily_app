@@ -12,9 +12,9 @@ import App from './components/App';
 import { RootReducer } from './reducers/RootReducer';
 import * as serviceWorker from './serviceWorker';
 
-// Axios is used to test backend routes through chrome terminal.
-// import axios from 'axios';
-// window.axios = axios;
+// Axios is used to test backend routes through chrome terminal. 
+import axios from 'axios';
+window.axios = axios;
 
 
 
