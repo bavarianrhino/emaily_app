@@ -150,3 +150,11 @@ HOW TO BUILD ON HEROKU
 - Every time something is changed, you need to build before deploying every time.
 - Traditionally we done commit out build assets to git
 - Heroku does not care about the client side configuration and need to code a run script in package.json
+
+Web Hook
+======
+- Anything where an outside API that facilitates an outside process that notifies our application through a callback that an event happened.
+- SendGrid will be accessing our POST Route /api/surveys/webhooks
+
+SendGrid
+======
