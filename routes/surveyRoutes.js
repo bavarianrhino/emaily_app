@@ -10,6 +10,10 @@ const surveyTemplate = require('../services/emailTemplates/surveyTemplate')
 const Survey = mongoose.model('surveys');
 
 module.exports = app => {
+
+    app.get('/api/surveys/thankyou', (req, res) => {
+        res.send("Thanks for the feedback!")
+    })
     // 2 things to vet about user before hooking up.
     // first user needs to be logged in and authenticated - use middleware 
     // second that user has enough credits 
