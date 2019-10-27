@@ -18,6 +18,14 @@ class Mailer extends helper.Mail {
         this.subject = subject;
         this.body = new helper.Context('text/html', content);
         this.recipients = this.formatAddresses(recipients);
+        // formatAddresses is a helper function below to iterate over the recipients subcollection
+        // which is an array of objects....in which to extract each recipient email
+    }
+
+    formatAddresses(recipients) {
+        return recipients.map(({ email }) => {
+            return new helper.Email(email);
+        })
     }
 }
 module.exports = Mailer;
