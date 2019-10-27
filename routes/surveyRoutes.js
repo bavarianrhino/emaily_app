@@ -21,7 +21,7 @@ module.exports = app => {
             title: title, //ES6 can reduce it down to just title
             subject: subject,
             body: body,
-            recipients: recipients.split(',').map(email => { return { email: email }}),
+            recipients: recipients.split(',').map(email => { return { email: email.trim() }}),
             _user: req.user.id,
             dateSent: Date.now() 
         })
