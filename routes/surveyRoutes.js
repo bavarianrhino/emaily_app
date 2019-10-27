@@ -13,7 +13,10 @@ module.exports = app => {
     // 2 things to vet about user before hooking up.
     // first user needs to be logged in and authenticated - use middleware 
     // second that user has enough credits 
-    app.post('/api/surveys', requireLogin, requireCredits, (req, res) => {
+    // After testing full email post, we then complete it as an async process because we do not want to save the survey,
+    // until we verify that all emails provided are 'good' and that they were all sent.
+    
+    app.post('/api/surveys', requireLogin, requireCredits, async (req, res) => {
         const { title, subject, body, recipients } = req.body;
 
          // Model class creates an instance of a survey and not persisted to the database...to save it, gotta call save()
@@ -32,7 +35,21 @@ module.exports = app => {
         // First arg is a object with subject property and a recipients property
         // Second arg is an object containing HTML to use in body of email 
         const mailer = new Mailer(survey, surveyTemplate(survey));
-        mailer.send();
+
+        // Below code creates multiple opportunites for errors
+        // Implement catch all error to notify user
+        try {
+            await mailer.send(); // Once mailer has sent all surveys successfully we then save that survey
+            await survey.save();
+
+            // Once survey is successfully saved, we know one credit was successfully used so we subtract from users credits
+            // and then we update user.
+            req.user.credits -= 1;
+            const user = await req.user.save(); //Wait to save and receive new updated user
+            res.send(user); //Sending back user model here so that a users credits is automatically updated.
+        } catch (error) {
+            res.status(422).send(error)
+        }
     })
 };
 // ES6 Reduces to = recipients: recipients.split(',').map(email => ({ email })
