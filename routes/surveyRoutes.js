@@ -32,6 +32,7 @@ module.exports = app => {
         // First arg is a object with subject property and a recipients property
         // Second arg is an object containing HTML to use in body of email 
         const mailer = new Mailer(survey, surveyTemplate(survey));
+        mailer.send();
     })
 };
 // ES6 Reduces to = recipients: recipients.split(',').map(email => ({ email })
