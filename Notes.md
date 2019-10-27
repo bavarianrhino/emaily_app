@@ -158,3 +158,11 @@ Web Hook
 
 SendGrid
 ======
+- Testing email functionality through axios using chrome terminal. Uncomment axios import and run following code in chrome.
+```javascript
+
+const survey = {title: 'my title', subject: 'my subject', recipients: 'rjriesenberger@gmail.com', body: 'this is the email body'};
+axios.post('/api/surveys', survey);
+
+```
+- At first should produce a promise that is pending. Should see displayed in terminal and network tabs

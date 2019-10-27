@@ -1,3 +1,6 @@
+// import './index.css';
+import 'materialize-css/dist/css/materialize.min.css' //webpack needs to import without path
+// import 'semantic-ui-css/semantic.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';  // react-redux - allows us to reach global store with provider Tag
@@ -9,9 +12,10 @@ import App from './components/App';
 import { RootReducer } from './reducers/RootReducer';
 import * as serviceWorker from './serviceWorker';
 
-// import './index.css';
-import 'materialize-css/dist/css/materialize.min.css' //webpack needs to import with out path
-// import 'semantic-ui-css/semantic.min.css';
+// Axios is used to test backend routes through chrome terminal.
+// import axios from 'axios';
+// window.axios = axios;
+
 
 
 // const store = createStore(RootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
@@ -29,4 +33,4 @@ ReactDOM.render(
 
 console.log('STRIPE KEY IS: ', process.env.REACT_APP_STRIPE_KEY)
 console.log('ENVIRONMENT IS: ', process.env.NODE_ENV)
-// serviceWorker.unregister();
+serviceWorker.unregister();
