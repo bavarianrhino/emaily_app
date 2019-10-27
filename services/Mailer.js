@@ -16,6 +16,7 @@ class Mailer extends helper.Mail {
         // We do everything below in such a way because sendgrid says to do so
         //     - formatAddresses is a helper function below to iterate over the recipients subcollection
         //     which is an array of objects....in which to extract each recipient email
+        this.sgApi = sendgrid(keys.sendGridKey)
         this.from_email = new helper.Email('ryan-riesenberger-no-reply@emaily.com');
         this.subject = subject;
         this.body = new helper.Context('text/html', content);
@@ -51,6 +52,18 @@ class Mailer extends helper.Mail {
             personalize.addTo(recipient);
         })
         this.addPersonalization(personalize)
+    }
+
+    // Function that takes this entire Mailer and sends it to sendGrid
+    async send() {
+        const request = this.sgApi.emptyRequest({
+            method: 'POST',
+            path: '/v3/mail/send',
+            body: this.toJSON()
+        });
+
+        const response = this.sgApi.API(request); //This is the 'thing' that actually sends it off to sendgrid
+        return response;
     }
 }
 module.exports = Mailer;
