@@ -3,6 +3,8 @@ const mongoose = require('mongoose')
 
 const requireLogin = require('../middlewares/requireLogin');
 const requireCredits = require('../middlewares/requireCredits');
+const Mailer = require('../services/Mailer')
+const surveyTemplate = require('../services/emailTemplates/surveyTemplate')
 
 // Added for testing framework scalability
 const Survey = mongoose.model('surveys');
@@ -25,6 +27,11 @@ module.exports = app => {
             _user: req.user.id,
             dateSent: Date.now() 
         })
+
+        // Good place to send an email
+        // First arg is a object with subject property and a recipients property
+        // Second arg is an object containing HTML to use in body of email 
+        const mailer = new Mailer(survey, surveyTemplate(survey));
     })
 };
 // ES6 Reduces to = recipients: recipients.split(',').map(email => ({ email })
