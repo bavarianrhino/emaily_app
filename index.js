@@ -26,6 +26,7 @@ app.use(passport.session());
 
 require('./routes/authRoutes')(app); // Short for const authRoutes = require('./routes/authRoutes'); authRoutes(app);
 require('./routes/billingRoutes')(app);
+require('./routes/surveyRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
     // Need to make sure Express serves up production assets in Heroku
