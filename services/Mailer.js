@@ -9,6 +9,15 @@ const keys = require('../config/keys');
 // Mailer contains custom code and functionality that is inherited from the Mail object
 // The Mail object comes from the sendgrid node_mod 
 class Mailer extends helper.Mail {
-    // Going to pretend this is done to see where it would be used.
+    // any time new Mailer(...), first function called is the constructor
+    constructor({ subject, recipients }, content) { // content is a HTML string from surveyTemplate
+        super();
+
+        // We do everything below in such a way because sendgrid says to do so
+        this.from_email = new helper.Email('ryanriesenberger-no-reply@emaily.com');
+        this.subject = subject;
+        this.body = new helper.Context('text/html', content);
+        this.recipients = this.formatAddresses(recipients);
+    }
 }
 module.exports = Mailer;
