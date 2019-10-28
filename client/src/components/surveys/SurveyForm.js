@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
-import SurveyForm from './SurveyForm'
 // import { connect } from 'react-redux';
 // import { } from 'semantic-ui-react';
 
-class SurveyNew extends Component {
+class SurveyForm extends Component {
     render() {
         return (
             <div>
-                <SurveyForm />
+                Survey Form!
             </div>
         )
     }
 }
 
-export default SurveyNew
+export default SurveyForm
