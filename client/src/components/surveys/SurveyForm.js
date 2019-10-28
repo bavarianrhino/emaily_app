@@ -15,12 +15,13 @@ class SurveyForm extends Component {
             </div>
         )
     }
+    // componentDidMount () {}
 
     render() {
         return (
             <div>
                 <form onSubmit={this.props.handleSubmit(values => console.log(values))}>
-                    
+                    {this.renderFields()}
                     <button type="submit">Submit</button>
                 </form>
             </div>
