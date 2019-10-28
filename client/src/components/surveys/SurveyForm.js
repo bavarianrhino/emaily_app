@@ -8,10 +8,15 @@ import SurveyField from './SurveyField'
 
 class SurveyForm extends Component {
 
+
     renderFields() {
+        // label="..." is automatically passed to component and can be called by props.label
         return (
             <div>
-                <Field type='text' name="title" component={SurveyField} /> 
+                <Field label="Survey Title" type='text' name="title" component={SurveyField} /> 
+                <Field label="Subject" type='text' name="subject" component={SurveyField} /> 
+                <Field label="Email Body (survey question)" type='text' name="body" component={SurveyField} /> 
+                <Field label="Recipient List" type='text' name="emails" component={SurveyField} /> 
             </div>
         )
     }

@@ -6,8 +6,10 @@ export default ({ input }) => {
     // console.log(input);
 
     // <input {...input} />  REPLACES <input onBlur={input.onBlur} onChange={input.onChange} /> etc.
+    // Label is not hard coded so that we can pass along a prop that assigns it automatically
     return (
         <div>
+            <label>{input.name}</label>
             <input {...input} />
         </div>
     );
