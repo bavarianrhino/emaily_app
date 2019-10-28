@@ -7,16 +7,17 @@ import SurveyField from './SurveyField'
 // import { } from 'semantic-ui-react';
 
 const FIELDS = [
-    { label: 'Survey Title', name: 'title' },
-    { label: 'Subject', name: 'subject' },
-    { label: 'Email Body (question...)', name: 'body' },
-    { label: 'Recipient List', name: 'emails' }
+    { label: 'Survey Title', name: 'Survey Title' },
+    { label: 'Subject', name: 'Subject' },
+    { label: 'Email Body', name: 'Email Body' },
+    { label: 'Recipient List', name: 'Recipient List' }
 ]
 
 class SurveyForm extends Component {
 
     renderFields = () => {
         return FIELDS.map((prop) => {
+            // prop =  {label, name}
             return <Field key={prop.name} label={prop.label} type='text' name={prop.name} component={SurveyField} /> 
         })
     }
@@ -26,7 +27,7 @@ class SurveyForm extends Component {
             <div>
                 <form onSubmit={this.props.handleSubmit(values => console.log(values))}>
                     {this.renderFields()}
-                    <button type="submit">Submit</button>
+                    <button type="submit" className="green btn-flat right white-text">Next<i className="material-icons right">arrow_forward</i></button>
                 </form>
             </div>
         )
