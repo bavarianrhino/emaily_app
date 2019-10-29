@@ -4,7 +4,7 @@ import React from 'react';
 // Props are being passed by redux-form
 // export default ({ input, label, meta }) => { //used nested destructuring
 
-export default ({ input, label, meta: { error, touched} }) => {
+export default ({ input, label, meta: { error, touched } }) => {
     // console.log(input);
     // console.log(meta); //see log output below
 

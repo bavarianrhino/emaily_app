@@ -2,9 +2,9 @@
 import _ from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
-import formFields from './formFields';
+import { withRouter } from 'react-router-dom';
 import * as actions from '../../actions'; //Passes submitSurvey
-import { withRouter } from 'react-router-dom'
+import formFields from './formFields';
 
 // import { } from 'semantic-ui-react';
 
@@ -27,7 +27,7 @@ const SurveyFormReview = ({ onSurveyEdit, formValues, submitSurvey, history }) =
                 {reviewFields}
             </div>
             <button className="orange white-text btn-flat" onClick={onSurveyEdit}> Edit </button>
-            <button onClick={() => submitSurvey(history)}className="green btn-flat right white-text" >Send Survey<i className='material-icons right'>email</i></button>
+            <button onClick={() => submitSurvey(formValues, history)}className="green btn-flat right white-text" >Send Survey<i className='material-icons right'>email</i></button>
         </div>
     )
 }

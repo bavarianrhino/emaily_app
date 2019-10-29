@@ -1,11 +1,11 @@
 // SurveyForm shows a form for a user to add input
 import _ from 'lodash';
 import React, { Component } from 'react';
-import { reduxForm, Field } from 'redux-form'; // Allows this component to communicate with the store....much like the connect
-import SurveyField from './SurveyField'
-import { Link } from 'react-router-dom'
-import validateEmails from '../../utils/validateEmails'
-import FIELDS from './formFields'
+import { Link } from 'react-router-dom';
+import { Field, reduxForm } from 'redux-form'; // Allows this component to communicate with the store....much like the connect
+import validateEmails from '../../utils/validateEmails';
+import FIELDS from './formFields';
+import SurveyField from './SurveyField';
 
 // import { connect } from 'react-redux';
 // import { } from 'semantic-ui-react';

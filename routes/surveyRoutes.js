@@ -22,7 +22,7 @@ module.exports = app => {
 
     app.post('/api/surveys/webhooks', (req, res) => {
         console.log(req.body)
-        console.log(res.body)
+        // console.log(res.body)
         res.send({});
     })
     // https://BrEaDtUnNeL_ApI_RiEsRyA.localtunnel.me/api/surveys/webhooks
