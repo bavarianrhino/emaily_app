@@ -11,7 +11,7 @@ class Header extends Component {
     renderContent() {
         switch (this.props.auth) {
             case null:
-                console.log("REQUEST DOES NOT HAVE RESPONSE")
+                // console.log("REQUEST DOES NOT HAVE RESPONSE")
                 return;
             case false:
                 console.log("LOGGED OUT")

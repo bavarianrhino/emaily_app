@@ -31,6 +31,7 @@ ReactDOM.render(
 	document.getElementById('root')
 );
 
-console.log('STRIPE KEY IS: ', process.env.REACT_APP_STRIPE_KEY)
-console.log('ENVIRONMENT IS: ', process.env.NODE_ENV)
+// console.log('STRIPE KEY IS: ', process.env.REACT_APP_STRIPE_KEY)
+// console.log('ENVIRONMENT IS IN: ', process.env.NODE_ENV)
+console.log(`STRIPE KEY IS: ${process.env.REACT_APP_STRIPE_KEY} ----- ENVIRONMENT IS IN: ${process.env.NODE_ENV}`)
 serviceWorker.unregister();

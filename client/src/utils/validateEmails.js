@@ -10,7 +10,7 @@ export default (recipients) => {
         .filter(email => regExEmailValidation.test(email) === false)
         // returns a boolean, but we want to keep emails that are false to notify user
     
-    console.log(invalidEmailsArr)
+    // console.log(invalidEmailsArr)
     if (invalidEmailsArr.length) {
         return `These emails are invalid: ${invalidEmailsArr}`;
     }
