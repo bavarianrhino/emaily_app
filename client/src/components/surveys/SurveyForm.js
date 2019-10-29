@@ -1,4 +1,5 @@
 // SurveyForm shows a form for a user to add input
+import _ from 'lodash';
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form'; // Allows this component to communicate with the store....much like the connect
 import SurveyField from './SurveyField'
@@ -8,10 +9,10 @@ import { Link } from 'react-router-dom'
 // import { } from 'semantic-ui-react';
 
 const FIELDS = [
-    { label: 'Survey Title', name: 'title' },
-    { label: 'Subject', name: 'subject' },
-    { label: 'Email Body', name: 'body' },
-    { label: 'Recipient List', name: 'recipients' }
+    { label: 'Survey Title', name: 'title', errorValue: 'Please include your survey title' },
+    { label: 'Subject', name: 'subject', errorValue: 'Please include your survey subject'},
+    { label: 'Email Body', name: 'body', errorValue: 'Oops! You\'re missing something...' },
+    { label: 'Recipient List', name: 'recipients', errorValue: 'Oops! Something is wrong here...' }
 ]
 
 class SurveyForm extends Component {
@@ -40,10 +41,13 @@ function validate(values) {
     // if the errors objects returns empty there are no validation errors
     const errors = {};
 
-    if(!values.title) {
-        errors.title = "You must provide a title";
-    }
-
+    // values.name references the actual key properties string "name"
+    _.each(FIELDS, ({ name, errorValue }) => {
+        // console.log(values)
+        if(!values[name]) {
+            errors[name] = errorValue
+        }
+    })
     return errors
 }
 
