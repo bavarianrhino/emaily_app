@@ -2,15 +2,20 @@
 import React from 'react';
 
 // Props are being passed by redux-form
-export default ({ input, label }) => {
+// export default ({ input, label, meta }) => { //used nested destructuring
+
+export default ({ input, label, meta: { error, touched} }) => {
     // console.log(input);
+    // console.log(meta); //see log output below
 
     // <input {...input} />  REPLACES <input onBlur={input.onBlur} onChange={input.onChange} /> etc.
     // Label is not hard coded so that we can pass along a prop that assigns it automatically
+    // if touched is true, and there is a string in error re
     return (
         <div>
             <label>{label}</label>
             <input {...input} />
+            {touched && error}
         </div>
     );
 };
@@ -55,4 +60,24 @@ export default ({ input, label }) => {
 // warning: undefined
 // __proto__: Object
 // type: "text"
+// __proto__: Object
+
+
+// meta logged
+// active: false
+// asyncValidating: false
+// autofilled: false
+// dirty: false
+// dispatch: ƒ ()
+// error: "You must provide a title"
+// form: "surveyForm"
+// initial: undefined
+// invalid: true
+// pristine: true
+// submitFailed: true
+// submitting: false
+// touched: true
+// valid: false
+// visited: false
+// warning: undefined
 // __proto__: Object
