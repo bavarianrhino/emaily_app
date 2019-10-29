@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form'; // Allows this component to communicate with the store....much like the connect
 import SurveyField from './SurveyField'
 import { Link } from 'react-router-dom'
+import validatesEmails from '../utils/validatesEmails'
 
 // import { connect } from 'react-redux';
 // import { } from 'semantic-ui-react';
@@ -52,7 +53,7 @@ function validate(values) {
 }
 
 // Unlike connect, reduxForm only takes one property
-// validate is a built in function fom reduxform
+// validate is a built in function fom redux-form
 export default reduxForm({ validate: validate, form: 'surveyForm' })(SurveyForm);
 
 
