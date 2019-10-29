@@ -155,6 +155,11 @@ Web Hook
 ======
 - Anything where an outside API that facilitates an outside process that notifies our application through a callback that an event happened.
 - SendGrid will be accessing our POST Route /api/surveys/webhooks
+- SendGrid sends large request of multiple clicks rather than one request at a time
+- Production: POST email.com/clicks/webhooks....or whatever
+- Dev POST localhost:5000.....?
+   We are going to use LocalTunnel.com
+   We'll hook up our local server to LocalTunnel which will take POSTs from SendGrid which will pass along to our server
 
 SendGrid
 ======
@@ -170,5 +175,3 @@ axios.post('/api/surveys', survey);
 Global State vs. Component State
 =====
 - Main question to ask is if that piece of data is ever used by another component anywhere else in your application?
-:sparkles:
-:apple:
