@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form'; // Allows this component to communicate with the store....much like the connect
 import SurveyField from './SurveyField'
+import { Link } from 'react-router-dom'
 
 // import { connect } from 'react-redux';
 // import { } from 'semantic-ui-react';
@@ -28,13 +29,27 @@ class SurveyForm extends Component {
                 <form onSubmit={this.props.handleSubmit(values => console.log(values))}>
                     {this.renderFields()}
                     <button type="submit" className="green btn-flat right white-text">Next<i className="material-icons right">arrow_forward</i></button>
+                    <Link to="/surveys" className="red btn-flat left white-text">Cancel</Link>
                 </form>
             </div>
         )
     }
 }
+
+function validate(values) {
+    // if the errors objects returns empty there are no validation errors
+    const errors = {};
+
+    if(!values.title) {
+        errors.title = "You must provide a title";
+    }
+
+    return errors
+}
+
 // Unlike connect, reduxForm only takes one property
-export default reduxForm({ form: 'surveyForm' })(SurveyForm);
+// validate is a built in function fom reduxform
+export default reduxForm({ validate: validate, form: 'surveyForm' })(SurveyForm);
 
 
 // ABOVE REPLACES THIS 
