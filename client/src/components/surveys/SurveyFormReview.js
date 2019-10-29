@@ -1,31 +1,28 @@
 // SurveyFrormReview shows users their inputs for review
+import _ from 'lodash';
 import React from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import formFields from './formFields';
 
 // import { } from 'semantic-ui-react';
 
 const SurveyFormReview = ({ onSurveyEdit, formValues }) => {
+
+    // See below example for clarification
+    const reviewFields = _.map(formFields, ({name, label}) => {
+        return (
+            <div key={name}>
+                <label>{label}</label>
+                <div>{formValues[name]}</div>
+            </div>
+        )
+    })
     
     return (
         <div>
             <h5>Please confirm your entries are correct</h5>
             <div>
-                <div>
-                    <label>Survey Title</label>
-                    <div>{formValues.title}</div>
-                </div>
-                <div>
-                    <label>Subject</label>
-                    <div>{formValues.subject}</div>
-                </div>
-                <div>
-                    <label>Email Body</label>
-                    <div>{formValues.body}</div>
-                </div>
-                <div>
-                    <label>Recipient List</label>
-                    <div>{formValues.recipients}</div>
-                </div>
+                {reviewFields}
             </div>
             <button className="yellow darken-3 btn-flat" onClick={onSurveyEdit}>Edit</button>
         </div>
@@ -75,4 +72,13 @@ export default connect(mapStateToProps)(SurveyFormReview);
 
 // const mapDispatchToProps = (dispatch) => ({
 //     functionName: (param) => dispatch({ type: 'ACTION_NAME', param })
+// })
+
+// const reviewFields = _.map(formFields, field => {
+//     return (
+//         <div key={field.name}>
+//             <label>{field.label}</label>
+//             <div>{formValues[field.name]}</div>
+//         </div>
+//     )
 // })
