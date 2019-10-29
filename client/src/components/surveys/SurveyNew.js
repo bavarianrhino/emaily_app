@@ -18,10 +18,16 @@ class SurveyNew extends Component {
         })
     }
 
+    onSurveyEdit = () => {
+        this.setState({
+            showFormReview: !this.state.showFormReview
+        })
+    }
+
     render() {
         return (
             <div>
-                {this.state.showFormReview ? <SurveyFormReview onSurveySubmit={this.onSurveySubmit}/> : <SurveyForm onSurveySubmit={this.onSurveySubmit}/>}
+                {this.state.showFormReview ? <SurveyFormReview onSurveyEdit={this.onSurveyEdit}/> : <SurveyForm onSurveySubmit={this.onSurveySubmit}/>}
             </div>
         )
     }

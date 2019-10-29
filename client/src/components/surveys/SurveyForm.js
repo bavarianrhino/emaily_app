@@ -60,7 +60,8 @@ function validate(values) {
 
 // Unlike connect, reduxForm only takes one property
 // validate is a built in function fom redux-form
-export default reduxForm({ validate: validate, form: 'surveyForm' })(SurveyForm);
+// DetroyOnUnmount built in function that keeps all form data if user needs to go back and edit
+export default reduxForm({ validate: validate, form: 'surveyForm', destroyOnUnmount: false })(SurveyForm);
 
 // DEBUGGING TIPS
 // <form onSubmit={this.props.handleSubmit(values => console.log(values))}>
