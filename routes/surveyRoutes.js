@@ -19,6 +19,14 @@ module.exports = app => {
     // second that user has enough credits 
     // After testing full email post, we then complete it as an async process because we do not want to save the survey,
     // until we verify that all emails provided are 'good' and that they were all sent.
+
+    app.post('/api/surveys/webhooks', (req, res) => {
+        console.log(req.body)
+        console.log(res.body)
+        res.send({});
+    })
+    // https://BrEaDtUnNeL_ApI_RiEsRyA.localtunnel.me/api/surveys/webhooks
+
     
     app.post('/api/surveys', requireLogin, requireCredits, async (req, res) => {
         const { title, subject, body, recipients } = req.body;
