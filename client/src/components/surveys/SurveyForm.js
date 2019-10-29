@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form'; // Allows this component to communicate with the store....much like the connect
 import SurveyField from './SurveyField'
 import { Link } from 'react-router-dom'
-import validatesEmails from '../utils/validatesEmails'
+import validateEmails from '../../utils/validateEmails'
 
 // import { connect } from 'react-redux';
 // import { } from 'semantic-ui-react';
@@ -13,7 +13,7 @@ const FIELDS = [
     { label: 'Survey Title', name: 'title', errorValue: 'Please include your survey title' },
     { label: 'Subject', name: 'subject', errorValue: 'Please include your survey subject'},
     { label: 'Email Body', name: 'body', errorValue: 'Oops! You\'re missing something...' },
-    { label: 'Recipient List', name: 'recipients', errorValue: 'Oops! Something is wrong here...' }
+    { label: 'Recipient List', name: 'recipients', errorValue: 'Please enter at least one email!' }
 ]
 
 class SurveyForm extends Component {
@@ -42,13 +42,19 @@ function validate(values) {
     // if the errors objects returns empty there are no validation errors
     const errors = {};
 
+    // This validates each email...but will throw error below if no emails are provided
+    // I use || "" because as the application boots up and runs for the first time, validatesEmails runs and try's to validate undefined
+    errors.recipients = validateEmails(values.recipients || '')
+
     // values.name references the actual key properties string "name"
+    // For recipients...this checks to see if there are any emails present then validates each email
     _.each(FIELDS, ({ name, errorValue }) => {
         // console.log(values)
         if(!values[name]) {
             errors[name] = errorValue
         }
     })
+
     return errors
 }
 
