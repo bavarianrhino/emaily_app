@@ -28,7 +28,7 @@ class SurveyForm extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.props.handleSubmit(values => console.log(values))}>
+                <form onSubmit={this.props.handleSubmit(() => this.props.onSurveySubmit())}>
                     {this.renderFields()}
                     <button type="submit" className="green btn-flat right white-text">Next<i className="material-icons right">arrow_forward</i></button>
                     <Link to="/surveys" className="red btn-flat left white-text">Cancel</Link>
@@ -61,6 +61,9 @@ function validate(values) {
 // Unlike connect, reduxForm only takes one property
 // validate is a built in function fom redux-form
 export default reduxForm({ validate: validate, form: 'surveyForm' })(SurveyForm);
+
+// DEBUGGING TIPS
+// <form onSubmit={this.props.handleSubmit(values => console.log(values))}>
 
 
 // ABOVE REPLACES THIS 

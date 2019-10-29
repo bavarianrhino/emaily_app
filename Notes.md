@@ -166,3 +166,7 @@ axios.post('/api/surveys', survey);
 
 ```
 - At first should produce a promise that is pending. Should see displayed in terminal and network tabs
+
+Global State vs. Component State
+=====
+- Main question to ask is if that piece of data is ever used by another component anywhere else in your application?
