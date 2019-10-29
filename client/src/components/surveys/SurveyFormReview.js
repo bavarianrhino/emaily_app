@@ -3,10 +3,11 @@ import _ from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
 import formFields from './formFields';
+import * as actions from '../../actions'; //Passes submitSurvey
 
 // import { } from 'semantic-ui-react';
 
-const SurveyFormReview = ({ onSurveyEdit, formValues }) => {
+const SurveyFormReview = ({ onSurveyEdit, formValues, submitSurvey }) => {
 
     // See below example for clarification
     const reviewFields = _.map(formFields, ({name, label}) => {
@@ -25,18 +26,18 @@ const SurveyFormReview = ({ onSurveyEdit, formValues }) => {
                 {reviewFields}
             </div>
             <button className="orange white-text btn-flat" onClick={onSurveyEdit}> Edit </button>
-            <button className="green btn-flat right white-text" >Send Survey<i className='material-icons right'>email</i></button>
+            <button onClick={() => submitSurvey(formValues)}className="green btn-flat right white-text" >Send Survey<i className='material-icons right'>email</i></button>
         </div>
     )
 }
 
 // const mapStateToProps = (state) => {return { attr: state.attr}}
 function mapStateToProps (state) {
-    console.log(state);
+    // console.log(state);
     return{ formValues: state.form.surveyForm.values }; // Passes props to this component and is destructed
 }
 
-export default connect(mapStateToProps)(SurveyFormReview);
+export default connect(mapStateToProps, actions)(SurveyFormReview);
 
 // console.log entire state when form is submitted
 // *********in form object, surveyForm is declared in our surveyForm export reactForm function
