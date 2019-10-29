@@ -8,10 +8,10 @@ import { Link } from 'react-router-dom'
 // import { } from 'semantic-ui-react';
 
 const FIELDS = [
-    { label: 'Survey Title', name: 'Survey Title' },
-    { label: 'Subject', name: 'Subject' },
-    { label: 'Email Body', name: 'Email Body' },
-    { label: 'Recipient List', name: 'Recipient List' }
+    { label: 'Survey Title', name: 'title' },
+    { label: 'Subject', name: 'subject' },
+    { label: 'Email Body', name: 'body' },
+    { label: 'Recipient List', name: 'recipients' }
 ]
 
 class SurveyForm extends Component {

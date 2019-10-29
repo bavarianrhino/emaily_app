@@ -2,14 +2,14 @@
 import React from 'react';
 
 // Props are being passed by redux-form
-export default ({ input }) => {
+export default ({ input, label }) => {
     // console.log(input);
 
     // <input {...input} />  REPLACES <input onBlur={input.onBlur} onChange={input.onChange} /> etc.
     // Label is not hard coded so that we can pass along a prop that assigns it automatically
     return (
         <div>
-            <label>{input.name}</label>
+            <label>{label}</label>
             <input {...input} />
         </div>
     );
