@@ -24,7 +24,8 @@ const SurveyFormReview = ({ onSurveyEdit, formValues }) => {
             <div>
                 {reviewFields}
             </div>
-            <button className="yellow darken-3 btn-flat" onClick={onSurveyEdit}>Edit</button>
+            <button className="orange white-text btn-flat" onClick={onSurveyEdit}> Edit </button>
+            <button className="green btn-flat right white-text" >Send Survey<i className='material-icons right'>email</i></button>
         </div>
     )
 }
