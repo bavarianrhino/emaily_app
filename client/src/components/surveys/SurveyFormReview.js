@@ -4,11 +4,29 @@ import { connect } from 'react-redux'
 
 // import { } from 'semantic-ui-react';
 
-const SurveyFormReview = ({ onSurveyEdit }) => {
+const SurveyFormReview = ({ onSurveyEdit, formValues }) => {
     
     return (
         <div>
             <h5>Please confirm your entries are correct</h5>
+            <div>
+                <div>
+                    <label>Survey Title</label>
+                    <div>{formValues.title}</div>
+                </div>
+                <div>
+                    <label>Subject</label>
+                    <div>{formValues.subject}</div>
+                </div>
+                <div>
+                    <label>Email Body</label>
+                    <div>{formValues.body}</div>
+                </div>
+                <div>
+                    <label>Recipient List</label>
+                    <div>{formValues.recipients}</div>
+                </div>
+            </div>
             <button className="yellow darken-3 btn-flat" onClick={onSurveyEdit}>Edit</button>
         </div>
     )
@@ -17,7 +35,7 @@ const SurveyFormReview = ({ onSurveyEdit }) => {
 // const mapStateToProps = (state) => {return { attr: state.attr}}
 function mapStateToProps (state) {
     console.log(state);
-    return{ formValues: state.form.surveyForm.values };
+    return{ formValues: state.form.surveyForm.values }; // Passes props to this component and is destructed
 }
 
 export default connect(mapStateToProps)(SurveyFormReview);

@@ -5,16 +5,17 @@ import { reduxForm, Field } from 'redux-form'; // Allows this component to commu
 import SurveyField from './SurveyField'
 import { Link } from 'react-router-dom'
 import validateEmails from '../../utils/validateEmails'
+import FIELDS from './formFields'
 
 // import { connect } from 'react-redux';
 // import { } from 'semantic-ui-react';
 
-const FIELDS = [
-    { label: 'Survey Title', name: 'title', errorValue: 'Please include your survey title' },
-    { label: 'Subject', name: 'subject', errorValue: 'Please include your survey subject'},
-    { label: 'Email Body', name: 'body', errorValue: 'Oops! You\'re missing something...' },
-    { label: 'Recipient List', name: 'recipients', errorValue: 'Please enter at least one email!' }
-]
+// const FIELDS = [
+//     { label: 'Survey Title', name: 'title', errorValue: 'Please include your survey title' },
+//     { label: 'Subject', name: 'subject', errorValue: 'Please include your survey subject'},
+//     { label: 'Email Body', name: 'body', errorValue: 'Oops! You\'re missing something...' },
+//     { label: 'Recipient List', name: 'recipients', errorValue: 'Please enter at least one email!' }
+// ]
 
 class SurveyForm extends Component {
 
