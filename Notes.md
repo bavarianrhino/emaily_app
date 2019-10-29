@@ -170,3 +170,4 @@ axios.post('/api/surveys', survey);
 Global State vs. Component State
 =====
 - Main question to ask is if that piece of data is ever used by another component anywhere else in your application?
+:sparkles
