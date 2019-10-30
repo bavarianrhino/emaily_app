@@ -73,7 +73,8 @@ MongoDB
 - Is schema-less
 - Mongoose
    Model class to represent entire collection in MongoDB  
-   Model instance are js objects that represent one of the records in a collection of MongoDB  
+   Model instance are js objects that represent one of the records in a collection of MongoDB
+-  Want to put as much search logic in mongo as possible
 
 Cookie Session Explained
 ======
@@ -193,3 +194,17 @@ _.chain(arr)
     .sampleSize(4)         // ["2A2","210","24","25"]
 
 ```
+
+Mongo Query
+======
+- Our incoming data is passed in an object 
+```javascript
+data = [{
+        surveyId: "5db8dd14f5b449723eb5b09f",
+        email: "ryan@gmail.com",
+        choice: "yes"
+    }]
+```
+- First, we want to find the matching survey by its surveyId...
+- As we iterate over and find the matching survey, we go another layer and
+- and then iterate to find the correct email to then compare to see if they have responded
