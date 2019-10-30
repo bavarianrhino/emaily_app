@@ -208,3 +208,28 @@ data = [{
 - First, we want to find the matching survey by its surveyId...
 - As we iterate over and find the matching survey, we go another layer and
 - and then iterate to find the correct email to then compare to see if they have responded
+
+- Finding the correct data but not updating
+```
+    Survey.findOne({
+        id: surveyId,
+        recipients: {
+            $elemMatch: { email: email, responded: false }
+        }
+    })
+```
+
+- Finding and updating the record completely in mongo
+- $inc called a mongo operator, says basically find the choice property which will be 'yes' or 'no' property
+-    and then increment by 1. When evaluated, [choice:] matches itself and when matched it increments
+```
+    Survey.updateOne({
+        id: surveyId,
+        recipients: {
+            $elemMatch: { email: email, responded: false }
+        }
+    }, {
+        $inc: { [choice:] 1 },
+        $set: { 'recipients.$.responded': true },
+    })
+```
