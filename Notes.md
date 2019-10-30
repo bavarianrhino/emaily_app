@@ -176,6 +176,20 @@ Global State vs. Component State
 =====
 - Main question to ask is if that piece of data is ever used by another component anywhere else in your application?
 
-<!-- "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run webhook\"", -->
-<!-- "webhook": "lt -p 3001 -s BrEaDtUnNeLApIRiEsRyA" -->
-<!-- "localtunnel": "^2.0.0", -->
+Lodash
+======
+```javascript
+
+const arr = [1, 2, 3];
+
+_.chain(arr).map(num => num * 2) // [2, 4, 6]
+
+const arr = [3, 2, 7, 8, 'b', 6, '', 0, "A"];
+
+_.chain(arr)
+    .map(num => num + 2)   // [5,4,9,10,5,8,"2",2,"A2"]
+    .sort()                // [10,"2",2,4,5,8,9,"A2","b2"]
+    .map(num => "2" + num) // ["210","22","22","24","25","28","29","2A2","2b2"]
+    .sampleSize(4)         // ["2A2","210","24","25"]
+
+```
