@@ -233,3 +233,25 @@ data = [{
         $set: { 'recipients.$.responded': true },
     })
 ```
+
+Node Environment Testing & Debuging
+======
+$ node
+> const express = require('express');
+const mongoose = require('mongoose')
+const cookieSession = require('cookie-session');
+const passport = require('passport') // Tells passport to keep of track of user authentication state by using cookie session - NOT FOR GOOGLE AUTH
+const keys = require('./config/keys')
+const bodyParser = require('body-parser');
+require('./models/User'); // Shorthand for const passportConfig = require('./services/passport');
+require('./models/Survey');
+require('./services/passport');
+
+mongoose.Promise = global.Promise;
+mongoose.connect(keys.mongoURI)
+
+const app = express();
+const Survey = mongoose.model('surveys');
+const User = mongoose.model('users');
+
+Survey.find({}).then(console.log)

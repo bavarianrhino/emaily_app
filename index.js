@@ -9,9 +9,12 @@ require('./models/User'); // Shorthand for const passportConfig = require('./ser
 require('./models/Survey');
 require('./services/passport');
 
+mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongoURI)
 
 const app = express();
+const Survey = mongoose.model('surveys');
+const User = mongoose.model('users');
 
 app.use(bodyParser.json());
 app.use(
@@ -44,7 +47,3 @@ if (process.env.NODE_ENV === 'production') {
 
 const PORT = process.env.PORT || 3001; // Heroku uses environment variables to tell us which port to use. Not needed if run on local machine, but handles if run on local machine
 app.listen(PORT)
-
-// app.get('/', (req, res) => {
-//     res.send({ bye: 'buddy' });
-// });
