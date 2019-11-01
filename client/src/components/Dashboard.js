@@ -9,7 +9,7 @@ const Dashboard = () => {
             <div className="row">
                 <div className="col s4 offset-s8">
                     <div className="action-btn right">
-                        <Link to="/surveys/new" className="btn-floating btn-large waves-effect waves-light pulse red">
+                        <Link to="/surveys/new" className="btn-floating btn-large waves-effect waves-light pulse green">
                             <i className="material-icons">add</i>
                         </Link>
                     </div>
