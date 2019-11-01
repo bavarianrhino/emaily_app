@@ -19,9 +19,6 @@ module.exports = (app) => {
         req.logout();
         console.log('******', req.user);
         res.redirect('/')
-        // res.send(req.user) //USE TO SETUP
-        // NOTE: navigating to /api/logout logged null for user, then navigated
-        //   to /api/current_user which logged undefined for user.
     })
 
     app.get('/api/current_user', (req, res) => {
@@ -29,4 +26,8 @@ module.exports = (app) => {
         res.send(req.user);
     });
 };
+
+// ************************************
+// Notes can be found in consolelog.js 
+// ************************************
 
