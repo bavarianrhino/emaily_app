@@ -1,3 +1,15 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
 node_modules
 dev.js
 verbose.js
+
+# console.logs
+/consolelog.js
+/config/consolelog.js
+/middlewares/consolelog.js
+/models/consolelog.js
+/routes/consolelog.js
+/services/consolelog.js
+/services/emailTemplates/consolelog.js
