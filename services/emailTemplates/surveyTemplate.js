@@ -1,6 +1,5 @@
 const keys = require('../../config/keys')
 
-// Returns an HTML snippet
 module.exports = (survey) => {
     return `
         <html>
@@ -20,6 +19,3 @@ module.exports = (survey) => {
         </html>
     `
 };
-
-// <a href="${keys.redirectDomain}/api/surveys/${survey.id}/yes">Yes</a>
-// <a href="${keys.redirectDomain}/api/surveys/${survey.id}/no">No</a>

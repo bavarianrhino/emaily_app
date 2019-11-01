@@ -1,28 +1,19 @@
-// Exports a class, hence capital M on Mailer.js
-
 const sendgrid = require('sendgrid');
 const helper = sendgrid.mail;
 const keys = require('../config/keys');
 
-// We are setting up a class mail and extending it the property helper.Mail,
-// which is an object which takes configuration that eventually spits out Mailer
-// Mailer contains custom code and functionality that is inherited from the Mail object
-// The Mail object comes from the sendgrid node_mod 
 class Mailer extends helper.Mail {
-    // any time new Mailer(...), first function called is the constructor
-    constructor({ subject, recipients }, content) { // content is a HTML string from surveyTemplate
+
+    constructor({ subject, recipients }, content) {
         super();
 
-        // We do everything below in such a way because sendgrid says to do so
-        //     - formatAddresses is a helper function below to iterate over the recipients subcollection
-        //     which is an array of objects....in which to extract each recipient email
         this.sgApi = sendgrid(keys.sendGridKey)
         this.from_email = new helper.Email('ryan-riesenberger-no-reply@emaily.com');
         this.subject = subject;
         this.body = new helper.Content('text/html', content);
-        this.recipients = this.formatAddresses(recipients); // Array of helper email objects
+        this.recipients = this.formatAddresses(recipients);
 
-        this.addContent(this.body) // Mail base class has built in functions
+        this.addContent(this.body);
         this.addClickTracking();
         this.addRecipients();
     }
@@ -33,8 +24,6 @@ class Mailer extends helper.Mail {
         })
     }
 
-    // Sendgrid Documentation for code below basically states this is what you need to do...so write this code
-    // Not much explanation on what's going on behind the scenes
     addClickTracking() {
         const trackingSettings = new helper.TrackingSettings();
         const clickTracking = new helper.ClickTracking(true, true);
@@ -43,8 +32,6 @@ class Mailer extends helper.Mail {
         this.addTrackingSettings(trackingSettings);
     }
 
-    // Helper function that takes the array of helper email objects that were first run through,
-    // formatAddresses and does strange sendgrid things...
     addRecipients() {
         const personalize = new helper.Personalization();
 
@@ -54,7 +41,6 @@ class Mailer extends helper.Mail {
         this.addPersonalization(personalize)
     }
 
-    // Function that takes this entire Mailer and sends it to sendGrid
     async send() {
         const request = this.sgApi.emptyRequest({
             method: 'POST',
@@ -62,7 +48,7 @@ class Mailer extends helper.Mail {
             body: this.toJSON()
         });
 
-        const response = await this.sgApi.API(request); //This is the 'thing' that actually sends it off to sendgrid
+        const response = await this.sgApi.API(request);
         return response;
     }
 }
