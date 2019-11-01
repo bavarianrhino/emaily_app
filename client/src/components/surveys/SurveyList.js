@@ -12,17 +12,18 @@ class SurveyList extends Component {
 
     renderSurveys() {
         return this.props.surveys.map(survey => {
+            console.log(survey)
             return (
-                <div className="col s12 m6">
-                    <div className="card blue-grey darken-1" key={survey.id}>
-                        <div className="card-content white-text">
+                <div className="col s12 m6" key={survey._id}>
+                    <div className="card grey lighten-3" key={survey._id}>
+                        <div className="card-content grey-darken-4-text">
                             <span className="card-title">{survey.title}</span>
                             <p>{survey.body}</p>
-                            <p className="card-title">Sent On: {new Date(survey.dateSent).toLocaleDateString()}</p>
+                            <p className="right">Sent On: {new Date(survey.dateSent).toLocaleDateString()}</p>
                         </div>
                         <div className="card-action">
-                            <a href="#">This is a link</a>
-                            <a href="#">This is a link</a>
+                            <a>Yes: {survey.yes}</a>
+                            <a>No: {survey.no}</a>
                         </div>
                     </div>
                 </div>
