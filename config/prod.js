@@ -1,5 +1,4 @@
-// prod.js - production keys here!!
-// Making a reference to our key that is sitting over on heroku
+// PRODUCTION KEYS - Reference global keys set in Heroku
 module.exports = {
 	googleClientID: process.env.GOOGLE_CLIENT_ID,
 	googleClientSecret: process.env.GOOGLE_CLIENT_SECRET,
