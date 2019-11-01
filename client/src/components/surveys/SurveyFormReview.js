@@ -3,14 +3,12 @@ import _ from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import * as actions from '../../actions'; //Passes submitSurvey
+import * as actions from '../../actions';
 import formFields from './formFields';
-
-// import { } from 'semantic-ui-react';
 
 const SurveyFormReview = ({ onSurveyEdit, formValues, submitSurvey, history }) => {
 
-    // See below example for clarification
+
     const reviewFields = _.map(formFields, ({name, label}) => {
         return (
             <div key={name}>
@@ -32,56 +30,12 @@ const SurveyFormReview = ({ onSurveyEdit, formValues, submitSurvey, history }) =
     )
 }
 
-// const mapStateToProps = (state) => {return { attr: state.attr}}
 function mapStateToProps (state) {
-    // console.log(state);
-    return{ formValues: state.form.surveyForm.values }; // Passes props to this component and is destructed
+    return{ formValues: state.form.surveyForm.values };
 }
 
 export default connect(mapStateToProps, actions)(withRouter(SurveyFormReview));
 
-// console.log entire state when form is submitted
-// *********in form object, surveyForm is declared in our surveyForm export reactForm function
-// {auth: {…}, form: {…}}
-// auth:
-//     credits: 30
-//     googleId: "xxxxxxxxxxxxxxxxxxx"
-//     __v: 0
-//     _id: "xxxxxxxxxxxxxxxxxxx"
-//     __proto__: Object
-// form:
-//     surveyForm:
-//         anyTouched: true
-//         fields:
-//             body: {visited: true, touched: true}
-//             recipients: {visited: true, touched: true}
-//             subject: {visited: true, touched: true}
-//             title: {visited: true, touched: true}
-//         registeredFields:
-//             body: {name: "body", type: "Field", count: 1}
-//             recipients: {name: "recipients", type: "Field", count: 1}
-//             subject: {name: "subject", type: "Field", count: 1}
-//             title: {name: "title", type: "Field", count: 1}
-//         submitSucceeded: true
-//         syncErrors:
-//         recipients: undefined
-//         values:
-//             body: "asdas"
-//             recipients: "asdas@gmail.com"
-//             subject: "asdasd"
-//             title: "sdf"
-
-
-
-// const mapDispatchToProps = (dispatch) => ({
-//     functionName: (param) => dispatch({ type: 'ACTION_NAME', param })
-// })
-
-// const reviewFields = _.map(formFields, field => {
-//     return (
-//         <div key={field.name}>
-//             <label>{field.label}</label>
-//             <div>{formValues[field.name]}</div>
-//         </div>
-//     )
-// })
+// ************************************
+// Notes can be found in consolelog.js 
+// ************************************

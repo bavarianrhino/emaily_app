@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchSurveys } from '../../actions';
 
-// import { } from 'semantic-ui-react';
-
 class SurveyList extends Component {
 
     componentDidMount() {
@@ -46,7 +44,6 @@ function mapStateToProps(state) {
 
 export default connect(mapStateToProps, { fetchSurveys })(SurveyList);
 
-// MAPSTATETOPROPS REFACTOR
-// function mapStateToProps({ surveys }) {
-//     return { surveys }
-// }
+// ************************************
+// Notes can be found in consolelog.js 
+// ************************************
