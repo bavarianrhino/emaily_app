@@ -3,7 +3,7 @@
 // ***************************************************************
 
 import axios from 'axios';
-import { FETCH_USER } from './types';
+import { FETCH_SURVEYS, FETCH_USER } from './types';
 
 // PREVIOUS REFACTORS BELOW
 export const fetchUser = () => async (dispatch) => {
@@ -25,6 +25,12 @@ export const submitSurvey = (values, history) => async dispatch => {
     history.push('/surveys');
     console.log(history)
     dispatch({ type: FETCH_USER, payload: res.data }); // This uses FETCH_USER from above...I would break it up
+};
+
+export const fetchSurveys = () => async (dispatch) => {
+    const res = await axios.get('/api/surveys');
+    
+    dispatch({ type: FETCH_SURVEYS, payload: res.data });
 };
 
 // **Note if setupProxy.js is not in use, execute the following line.
