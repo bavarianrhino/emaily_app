@@ -65,13 +65,15 @@
   
 <b>Deployment</b>
 
-- [Heroku](https://emailymailer.herokuapp.com/)
+- [Heroku](https://dry-cove-84361.herokuapp.com/)
 
-### Install
+### Local Env Installation
+
+<b>Install</b>
 ```zsh
 npm install && npm install --prefix client
 ```
-### Development Configuration
+<b>Development Configuration</b>
 
 Create a file "dev.js" in /config and paste the following configuration keys with appropriate values.
 ```javascript
@@ -86,7 +88,7 @@ module.exports = {
     redirectDomain: ''
 };
 ```
-### Run the application
+<b>Run the application</b>
 
 To start the application run the following command.
 ```zsh
