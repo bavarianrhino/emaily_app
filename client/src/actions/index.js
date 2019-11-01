@@ -1,6 +1,6 @@
 
 import axios from 'axios';
-import { FETCH_SURVEYS, FETCH_USER } from './types';
+import { FETCH_SURVEYS, FETCH_USER, DELETE_SURVEY } from './types';
 
 // PREVIOUS REFACTORS IN NOTES
 export const fetchUser = () => async (dispatch) => {
@@ -29,11 +29,10 @@ export const fetchSurveys = () => async (dispatch) => {
     dispatch({ type: FETCH_SURVEYS, payload: res.data });
 };
 
-export const deleteSurvey = (id) => async (dispatch) => {
-    const res = await axios.delete('/api/surveys', id);
+export const deleteSurvey = (surveyId) => async (dispatch) => {
+    const res = await axios.delete(`/api/surveys/delete/${surveyId}`);
 
-    console.log(res)
-    dispatch({ type: FETCH_SURVEYS, payload: data});
+    dispatch({ type: DELETE_SURVEY, payload: surveyId});
 };
 
 // ************************************

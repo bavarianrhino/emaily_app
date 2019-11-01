@@ -17,6 +17,20 @@ module.exports = app => {
         res.send(surveys);
     })
 
+    app.delete('/api/surveys/delete/:surveyId', requireLogin, async (req, res) => {
+        const p = new Path('/api/surveys/delete/:surveyId'),
+            fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+      
+            const match = p.test(new URL(fullUrl).pathname);
+        try {
+            await Survey.deleteOne({ _id: match.surveyId});
+
+            res.send({});
+        } catch (error) {
+            res.status(422).send(error)
+        }
+    });
+
     app.get('/api/surveys/:surveyId/:choice', (req, res) => {
         res.send("Thanks for the feedback!")
     })

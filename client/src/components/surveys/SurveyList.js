@@ -8,9 +8,9 @@ class SurveyList extends Component {
         this.props.fetchSurveys();
     }
 
-    handleDeleteSurvey(id) {
-        console.log(id)
-        this.props.deleteSurvey(id)
+    handleDeleteSurvey(surveyId) {
+        console.log(surveyId)
+        this.props.deleteSurvey(surveyId)
     }
 
     renderSurveys() {
