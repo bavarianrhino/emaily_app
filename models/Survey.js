@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-// const Schema = mongoose.Schema; is destructured below
 const { Schema } = mongoose;
 const RecipientSchema = require('./Recipient')
 
@@ -16,5 +15,4 @@ const surveySchema = new Schema({
 });
 
 mongoose.model('surveys', surveySchema);
-
 // LOOK AT MONGOOSE DOCUMENTATION TO SEE MORE OPTIONS FOR SCHEMA

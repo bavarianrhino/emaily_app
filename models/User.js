@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-// const Schema = mongoose.Schema; is destructured below
 const { Schema } = mongoose;
 
 const userSchema = new Schema({
@@ -8,5 +7,4 @@ const userSchema = new Schema({
 });
 
 mongoose.model('users', userSchema);
-
 // LOOK AT MONGOOSE DOCUMENTATION TO SEE MORE OPTIONS FOR SCHEMA
