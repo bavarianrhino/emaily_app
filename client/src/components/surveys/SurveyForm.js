@@ -17,8 +17,8 @@ class SurveyForm extends Component {
     
     render() {
         return (
-            <div>
-                <form onSubmit={this.props.handleSubmit(() => this.props.onSurveySubmit())}>
+            <div className="container white z-depth-4" style={{ padding: '10px 10px 0px 10px', borderRadius: '10px' }}>
+                <form  style={{  }} onSubmit={this.props.handleSubmit(() => this.props.onSurveySubmit())}>
                     {this.renderFields()}
                     <button type="submit" className="green btn-flat right white-text">Next<i className="material-icons right">arrow_forward</i></button>
                     <Link to="/surveys" className="red btn-flat left white-text">Cancel</Link>

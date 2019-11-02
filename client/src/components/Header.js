@@ -14,15 +14,15 @@ class Header extends Component {
 
             case false:
                 console.log("LOGGED OUT")
-                return <li><a href="/auth/google">Login With Google</a></li>
+                return <li style={{ marginRight: '10px'}}><button className="btn green"><a href="/auth/google">Login</a></button></li>
 
             default:
                 console.log("LOGGED IN")
             
                 return [
                     <li key={1}><Payments /></li>,
-                    <li key={3} style={{ margin: '0 10px'}}>Credits: {this.props.auth.credits}</li>,
-                    <li key={2}><a href="/api/logout">Logout</a></li>
+                    <li key={3} style={{ margin: '0 10px'}}><button className="btn amber darken-3">Credits: {this.props.auth.credits}</button></li>,
+                    <li key={2} style={{ marginRight: '10px'}}><button className="btn red"><a href="/api/logout">Logout</a></button></li>
                 ]
         }
     }
@@ -30,11 +30,11 @@ class Header extends Component {
     render() {
     
         return (
-            <div className="container">
+            <div style={{ marginBottom: '40px' }}>
                 <nav>
-                    <div  className='nav-wrapper grey darken-4'>
+                    <div className='nav-wrapper grey darken-4'>
                         <Link to={this.props.auth ? '/surveys' : '/'}>
-                            <a href="#!" class="brand-logo">
+                            <a class="brand-logo">
                                 <img src={logo} alt={logo} style={{ width: '75%', margin: '5px 15px', 'border-radius': '5px' }}className="responsive-img" />
                             </a>
                         </Link>

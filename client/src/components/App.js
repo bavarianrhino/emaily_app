@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
+import '../App.css';
 import * as actions from '../actions'
 import Header from "./Header";
 import Landing from './Landing'
 import Dashboard from './Dashboard'
 import Thankyou from './Thankyou'
 import SurveyNew from './surveys/SurveyNew'
+// import cover from '../media/imgs/vw_background4.jpg'
+import cover from '../media/imgs/red_survey.jpg'
 
 class App extends Component {
 
@@ -14,11 +17,12 @@ class App extends Component {
         this.props.fetchUser();
     }
 
+    // <div style={{backgroundImage: `url("${cover}")`}} className="cover">
     render() {
         return (
             <div>
                 <BrowserRouter>
-                    <div>
+                    <div style={{backgroundColor: '#fb6f6f'}} className="cover">
                         <Header />
                         <Route exact path='/' component={Landing} />
                         <Route exact path='/thankyou' component={Thankyou} />
