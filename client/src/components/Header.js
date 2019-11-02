@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Payments from './Payments'
 
+import logo from '../media/imgs/surveyarray1.png'
+
 class Header extends Component {
 
     renderContent() {
@@ -28,12 +30,18 @@ class Header extends Component {
     render() {
     
         return (
-            <nav>
-                <div className="nav-wrapper">
-                    <Link to={this.props.auth ? '/surveys' : '/'} className='brand-logo'>E-Maily!</Link>
-                    <ul className="right hide-on-med-and-down">{this.renderContent()}</ul>
-                </div>
-            </nav>
+            <div className="container">
+                <nav>
+                    <div  className='nav-wrapper grey darken-4'>
+                        <Link to={this.props.auth ? '/surveys' : '/'}>
+                            <a href="#!" class="brand-logo">
+                                <img src={logo} alt={logo} style={{ width: '75%', margin: '5px 15px', 'border-radius': '5px' }}className="responsive-img" />
+                            </a>
+                        </Link>
+                        <ul className="right hide-on-med-and-down">{this.renderContent()}</ul>
+                    </div>
+                </nav>
+            </div>
         )
     }
 }

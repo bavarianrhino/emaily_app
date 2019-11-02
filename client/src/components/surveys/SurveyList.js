@@ -18,8 +18,8 @@ class SurveyList extends Component {
             return (
                 <div class="col s12 m6">
                     <div class="card-panel">
-                        <span class="card-title white-text">No Surveys!</span>
-                        <p class="white-text">Please add a survey by clicking the green button below.</p>
+                        <span class="card-title black-text">No Surveys!</span>
+                        <p class="black-text">Please add a survey by clicking the green button below.</p>
                     </div>
                 </div>
             )

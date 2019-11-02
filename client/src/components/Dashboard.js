@@ -4,7 +4,7 @@ import SurveyList from './surveys/SurveyList';
 
 const Dashboard = () => {
     return (
-        <div>
+        <div className="container">
             <SurveyList />
             <div className="row">
                 <div className="col s4 offset-s8">
