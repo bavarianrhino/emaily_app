@@ -8,8 +8,6 @@ import Landing from './Landing'
 import Dashboard from './Dashboard'
 import Thankyou from './Thankyou'
 import SurveyNew from './surveys/SurveyNew'
-// import cover from '../media/imgs/vw_background4.jpg'
-import cover from '../media/imgs/red_survey.jpg'
 
 class App extends Component {
 
@@ -17,7 +15,6 @@ class App extends Component {
         this.props.fetchUser();
     }
 
-    // <div style={{backgroundImage: `url("${cover}")`}} className="cover">
     render() {
         return (
             <div>

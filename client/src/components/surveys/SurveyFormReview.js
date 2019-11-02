@@ -19,13 +19,21 @@ const SurveyFormReview = ({ onSurveyEdit, formValues, submitSurvey, history }) =
     })
     
     return (
-        <div>
-            <h5>Please confirm your entries are correct</h5>
-            <div>
-                {reviewFields}
+        <div className="container" style={{ borderRadius: '10px'}}>
+            <div className='row valign-wrapper white z-depth-4'>
+                <div className="col s12" style={{ textAlign: 'left', marginLeft: '20px'}}>
+                    <h5><em>Please confirm your entries are correct.</em></h5>
+                    <div style={{ paddingBottom: '15px'}}>
+                        {reviewFields}
+                    </div>
+                </div>
             </div>
-            <button className="orange white-text btn-flat" onClick={onSurveyEdit}> Edit </button>
-            <button onClick={() => submitSurvey(formValues, history)}className="green btn-flat right white-text" >Send Survey<i className='material-icons right'>email</i></button>
+            <div className='row valign-wrapper'>
+                <div className="col s12" style={{ textAlign: 'center', borderRadius: '10px'}}>
+                    <button className="orange white-text btn-large left" onClick={onSurveyEdit}> Edit </button>
+                    <button onClick={() => submitSurvey(formValues, history)}className="green btn-large right white-text pulse">Send Survey<i className='material-icons right'>email</i></button>
+                </div>
+            </div>
         </div>
     )
 }
