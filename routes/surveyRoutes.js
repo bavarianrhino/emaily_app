@@ -6,6 +6,7 @@ const requireLogin = require('../middlewares/requireLogin');
 const requireCredits = require('../middlewares/requireCredits');
 const Mailer = require('../services/Mailer')
 const surveyTemplateCSS = require('../services/emailTemplates/surveyTemplateCSS')
+// import Dashboard from '../client/src/components/Dashboard'
 
 const Survey = mongoose.model('surveys');
 
@@ -32,7 +33,8 @@ module.exports = app => {
     });
 
     app.get('/api/surveys/:surveyId/:choice', (req, res) => {
-        res.send("Thanks for the feedback!")
+        res.redirect('/thankyou')
+        // res.send("Thanks for the feedback!")
     })
        
     app.post('/api/surveys/webhooks', (req, res) => {
