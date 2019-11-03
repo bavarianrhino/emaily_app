@@ -4,6 +4,10 @@ body {
     background-color: #fb6f6f;
 }
 
+a {
+    color: white;
+}
+
 /* .cover { */
     /* background-color: #fb6f6f; */
     /* overflow: ov */

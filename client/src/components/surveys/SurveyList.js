@@ -16,10 +16,10 @@ class SurveyList extends Component {
     renderSurveys() {
         if(this.props.surveys.length === 0){
             return (
-                <div class="col s12 m6">
-                    <div class="card-panel">
-                        <span class="card-title black-text">No Surveys!</span>
-                        <p class="black-text">Please add a survey by clicking the green button below.</p>
+                <div className="col s12 m6">
+                    <div className="card-panel">
+                        <span className="card-title black-text">No Surveys!</span>
+                        <p className="black-text">Please add a survey by clicking the green button below.</p>
                     </div>
                 </div>
             )
@@ -35,9 +35,9 @@ class SurveyList extends Component {
                                 <p className="right">Sent On: {new Date(survey.dateSent).toLocaleDateString()}</p>
                             </div>
                             <div className="card-action">
-                                <a>Yes: {survey.yes}</a>
-                                <a>No: {survey.no}</a>
-                                <a className="waves-effect waves-light btn right red" style={{ 'margin-top': '-0.5em' }} onClick={() => this.handleDeleteSurvey(survey._id)}><i class="material-icons">clear</i></a>
+                                <span style={{marginRight: '10px'}}>Yes: {survey.yes}</span>
+                                <span>No: {survey.no}</span>
+                                <button className="waves-effect waves-light btn right red" style={{ marginTop: '-0.5em' }} onClick={() => this.handleDeleteSurvey(survey._id)}><i className="material-icons">clear</i></button>
                             </div>
                         </div>
                     </div>

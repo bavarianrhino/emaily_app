@@ -32,6 +32,7 @@ export const fetchSurveys = () => async (dispatch) => {
 export const deleteSurvey = (surveyId) => async (dispatch) => {
     const res = await axios.delete(`/api/surveys/delete/${surveyId}`);
 
+    console.log("Removed Survey", res)
     dispatch({ type: DELETE_SURVEY, payload: surveyId});
 };
 

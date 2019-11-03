@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux"
 
 const Thankyou = () => {
     return (
@@ -11,7 +12,9 @@ const Thankyou = () => {
                         <h5 class="header col s12 light">Your feedback is very important to me!!</h5>
                     </div>
                     <div class="row center">
-                        <a href="/surveys" id="download-button" class="btn-large waves-effect waves-light green lighten-1">See Surveys</a>
+                        <button className="btn-large waves-effect waves-light teal" style={{ borderRadius: '10px', marginTop: '5px'}}>
+                            {this.props.auth ? <a href="/surveys">See Surveys</a> : <a href="/login">Login</a>}
+                        </button>
                     </div>
                     <br></br>
                 </div>
@@ -20,5 +23,9 @@ const Thankyou = () => {
     )
 }
 
-export default Thankyou;
-// <div class="parallax"><img src="background1.jpg" alt="Unsplashed background img 1"></div>
+function mapStateToProps({ auth }) {
+    return { auth }
+}
+
+export default connect(mapStateToProps)(Thankyou);
+/* <a href="/surveys" id="download-button" class="btn-large waves-effect waves-light green lighten-1">See Surveys</a> */
