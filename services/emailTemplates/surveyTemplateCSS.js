@@ -25,16 +25,18 @@ return `
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
             <meta name="viewport" content="width=device-width"/>
+            <title>RYAN RIESENBERGER EMAIL SURVEY WEBHOOK</title>
             <style type="text/css">
                 * { margin: 0; padding: 0; font-size: 100%; font-family: 'Avenir Next', "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; line-height: 1.65; }
                 img { max-width: 100%; margin: 0 auto; display: block; }
-                body, .body-wrap { width: 100% !important; height: 100%; background: #f8f8f8; }
-                a { color: #71bc37; text-decoration: none; }
+                body, .body-wrap { width: 100% !important; height: 100%; background: #fb6f6f; }
+                a { color: white; text-decoration: none; }
+                link { color: lightblue; text-decoration: none; }
                 a:hover { text-decoration: underline; }
                 .text-center { text-align: center; }
                 .text-right { text-align: right; }
                 .text-left { text-align: left; }
-                .button { display: inline-block; color: white; background: #71bc37; border: solid #71bc37; border-width: 10px 20px 8px; font-weight: bold; border-radius: 4px; }
+                .button { display: inline-block; color: white; background: #fb6f6f; border: solid #fb6f6f; border-width: 10px 20px 8px; font-weight: bold; border-radius: 4px; }
                 .button:hover { text-decoration: none; }
                 h1, h2, h3, h4, h5, h6 { margin-bottom: 20px; line-height: 1.25; }
                 h1 { font-size: 32px; }
@@ -45,7 +47,7 @@ return `
                 p, ul, ol { font-size: 16px; font-weight: normal; margin-bottom: 20px; }
                 .container { display: block !important; clear: both !important; margin: 0 auto !important; max-width: 580px !important; }
                 .container table { width: 100% !important; border-collapse: collapse; }
-                .container .masthead { padding: 80px 0; background: #71bc37; color: white; }
+                .container .masthead { padding: 80px 0; background: #fb6f6f; color: white; }
                 .container .masthead h1 { margin: 0 auto !important; max-width: 90%; text-transform: uppercase; }
                 .container .content { background: white; padding: 30px 35px; }
                 .container .content.footer { background: none; }
@@ -67,7 +69,7 @@ return `
                         <tr>
                             <td class="content">
                                 <h2>Hey!</h2>
-                                <p>If you don't mind, I would love to have your feed back! Please answer the following question.</p>
+                                <p>Please answer the following question.</p>
                                 <p>${survey.body}</p>
                                 <table>
                                     <tr>
@@ -80,7 +82,7 @@ return `
                                     </tr>
                                 </table>
                                 <p>Don't forget!! It takes about 30 to 45 seconds for the webhook to be posted to the database.</p>
-                                <p>By the way, if you're wondering where you can find more about me, visit <a href="https://www.ryanriesenberger.com">www.ryanriesenberger.com</a>.</p>
+                                <p>Also check me out and visit <a class='link' href="https://www.ryanriesenberger.com">www.ryanriesenberger.com</a>.</p>
                                 <p><em>– Ryan Riesenberger</em></p>
                             </td>
                         </tr>
@@ -92,8 +94,8 @@ return `
                     <table>
                         <tr>
                             <td class="content footer" align="center">
-                                <p>Sent by <a href="#">Ryan Riesenberger</a>, Atlanta Georgia</p>
-                                <p><a href="https://www.ryanriesenberger.com">www.ryanriesenberger.com</a> | <a href="https://www.linkedin.com/in/ryan-riesenberger-b4725b167/">LinkedIn</a></p>
+                                <p class='link'>Sent by <a href="https://www.ryanriesenberger.com">Ryan Riesenberger</a>, Atlanta Georgia</p>
+                                <p><a class='link' href="https://www.ryanriesenberger.com">www.ryanriesenberger.com</a> | <a class='link' href="https://www.linkedin.com/in/ryan-riesenberger-b4725b167/">LinkedIn</a></p>
                             </td>
                         </tr>
                     </table>
