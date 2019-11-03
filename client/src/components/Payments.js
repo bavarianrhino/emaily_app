@@ -7,7 +7,7 @@ class Payments extends Component {
     render() {
         return (
             <StripeCheckout
-                name="EMAILY APPLICATION"
+                name="SURVEY[] APPLICATION"
                 description="Purchase 5 email credits for $5"
                 amount={500}
                 token={token => this.props.handleToken(token)}

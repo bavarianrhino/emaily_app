@@ -1,4 +1,4 @@
-## Emaily
+## Survey[]
 
 > A large feedback-collection app. This mega app includes the full gamut of features, including everything from authentication to email handling. The app can be used to send mass emails to a big list of users for the purpose of collecting feedback.  
 
@@ -26,7 +26,7 @@
 <!-- </p> -->
 
 
-### Tech/framework used
+### Tech/Framework Stack
 
 <b>Front-End</b>
 
@@ -79,8 +79,8 @@ Create a file "dev.js" in /config and paste the following configuration keys wit
 ```javascript
 module.exports = {
     googleClientID: '',
-	googleClientSecret: '',
-	mongoURI: '',
+    googleClientSecret: '',
+    mongoURI: '',
     cookieKey: '',
     stripePublishableKey: '',
     stripeSecretKey: '',
