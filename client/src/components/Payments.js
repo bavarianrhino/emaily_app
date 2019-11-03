@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 import * as actions from '../actions'
 
 class Payments extends Component {
+    
+    componentDidMount() { document.title = 'Survey[] - Stripe Payment - Ryan Riesenberger' }
+
     render() {
         return (
             <StripeCheckout

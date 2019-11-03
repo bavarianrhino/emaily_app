@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux"
 
 const Thankyou = () => {
+    
     return (
         <div id="index-banner" class="parallax-container">
             <div class="section no-pad-bot">

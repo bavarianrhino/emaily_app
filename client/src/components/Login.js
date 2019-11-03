@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-// import { Link, withRouter, Redirect } from 'react-router-dom';
 
 const OauthOption = ({ label, icon, background, url }) => (
     <div className="row">
@@ -16,11 +15,10 @@ const OauthOption = ({ label, icon, background, url }) => (
 
 class Login extends Component {
 
-        componentDidMount() { document.title = 'Survey[] - Login - Built by Ryan Riesenberger' }
+    componentDidMount() { document.title = 'Survey[] - Login - Ryan Riesenberger' }
         
-        
-        render() {
-            console.log(document)
+    render() {
+        console.log(document)
         const { auth } = this.props;
 
         if (auth)

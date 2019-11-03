@@ -4,6 +4,9 @@ import coverPicture from '../media/imgs/email_survey_teal.png'
 
 
 class Landing extends Component {
+
+    componentDidMount() { document.title = 'Survey[] - Home - Ryan Riesenberger' }
+
     render () {
         return (
             <div className='container valign-wrapper"'>

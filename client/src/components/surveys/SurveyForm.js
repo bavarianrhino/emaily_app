@@ -9,6 +9,8 @@ import SurveyField from './SurveyField';
 
 class SurveyForm extends Component {
 
+    componentDidMount() { document.title = 'Survey[] - New Survey - Ryan Riesenberger' }
+
     renderFields = () => {
         return FIELDS.map((prop) => {
             return <Field key={prop.name} label={prop.label} type='text' name={prop.name} component={SurveyField} /> 

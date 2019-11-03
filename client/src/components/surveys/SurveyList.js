@@ -5,11 +5,13 @@ import { fetchSurveys, deleteSurvey } from '../../actions';
 class SurveyList extends Component {
 
     componentDidMount() {
+        document.title = 'Survey[] - Survey List - Ryan Riesenberger';
+
         this.props.fetchSurveys();
     }
 
     handleDeleteSurvey(surveyId) {
-        console.log(surveyId)
+        // console.log(surveyId)
         this.props.deleteSurvey(surveyId)
     }
 
