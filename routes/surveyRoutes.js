@@ -33,7 +33,9 @@ module.exports = app => {
     });
 
     app.get('/api/surveys/:surveyId/:choice', (req, res) => {
+        // res.redirect('https://git.heroku.com/dry-cove-84361.git/thankyou')
         res.redirect('https://dry-cove-84361.herokuapp.com/thankyou')
+        // res.send("Thanks for the feedback!")
     })
        
     app.post('/api/surveys/webhooks', (req, res) => {
